@@ -25,9 +25,9 @@ public class Stack {
 
     public void push(int element){
 
-//        if(isFull()){
-//            return;
-//        }
+        if(isFull()){
+            return;
+        }
         ar[top++] = element;
         size++;
 
@@ -38,10 +38,10 @@ public class Stack {
         return top==0;
     }
 
-    public int pop() throws Exception{
+    public int pop() throws Exception {
 
         if(isEmpty()){
-            throw new Exception("Abey khaali he be");
+            throw new MyException("Abey khaali he be");
         }
 
         size--;
