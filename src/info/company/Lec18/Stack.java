@@ -4,11 +4,11 @@ import java.util.Arrays;
 
 public class Stack {
 
-    private int[] ar;
+    protected int[] ar;
 
-    private int top;
+    protected int top;
 
-    private int size=0;
+    protected int size=0;
 
     private int DEFAULT_SIZE=10;
 

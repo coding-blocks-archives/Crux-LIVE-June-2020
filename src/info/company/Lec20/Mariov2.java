@@ -1,18 +1,14 @@
 package info.company.Lec20;
 
-public  class Mariov2 extends Mario1 {
-
-
-    int hands =3;
-
+public class Mariov2 extends Mario1 {
 
     //for Marioabs
 //    @Override
 //    public void mechupahuntujhse() {
 //        System.out.println("me hun don");
 //    }
-
     public static void meredushman(){
+
         System.out.println("inhe chordunga nhi");
     }
 

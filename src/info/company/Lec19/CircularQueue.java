@@ -2,15 +2,15 @@ package info.company.Lec19;
 
 public class CircularQueue {
 
-    private int[] ar;
+    protected int[] ar;
 
     private int DEFAULT_SIZE=10;
 
-    private int rear = 0;
+    protected int rear = 0;
 
-    private int front= 0;
+    protected int front= 0;
 
-    int size=0;
+    protected int size=0;
 
     public CircularQueue() {
 
@@ -18,7 +18,7 @@ public class CircularQueue {
 
     }
 
-    private boolean isFull(){
+    protected boolean isFull(){
         return size==ar.length;
     }
 

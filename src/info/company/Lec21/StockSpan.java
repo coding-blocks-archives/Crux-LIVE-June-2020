@@ -1,4 +1,4 @@
-package info.company;
+package info.company.Lec21;
 
 import java.util.Arrays;
 import java.util.Scanner;
