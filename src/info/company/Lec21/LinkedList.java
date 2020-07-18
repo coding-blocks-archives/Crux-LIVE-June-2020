@@ -3,13 +3,38 @@ package info.company.Lec21;
 public class LinkedList {
 
     Node head;
+    int size = 0;
+    Node tail;
 
     public void insertfirst(int element){
 
         Node node = new Node(element);
         node.next= head;
         head = node;
+
+        if(tail==null){
+            tail=head;
+        }
+
+        size++;
     }
+
+    public void insertlast(int element){
+
+        if(size==0){
+            insertfirst(element);
+            return;
+        }
+
+        Node node = new Node(element);
+
+        tail.next = node;
+
+        tail = node;
+
+        size++;
+    }
+
 
     public void display(){
 
