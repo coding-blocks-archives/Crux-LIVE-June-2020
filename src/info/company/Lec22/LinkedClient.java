@@ -16,13 +16,11 @@ public class LinkedClient {
 //        System.out.println(list.deleteindex(2));
         list.insertlast(15);
 
-        list.reverse();
-
-        list.insertlast(10);
-
-        list.deletelast();
-
-        list.insertlast(14);
+        list.reverse();//        list.insertlast(10);
+//
+//        list.deletelast();
+//
+//        list.insertlast(14);
 
         System.out.println(list.size);
 //        System.out.println(list.deleteindex(0));
