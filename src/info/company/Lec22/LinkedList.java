@@ -148,9 +148,168 @@ public class LinkedList {
         }
 
         reverse(node.next);
+
         tail.next=node;
         node.next =null;
         tail=node;
+    }
+
+    public Node mid(){
+
+        Node slow = head;
+        Node fast = head;
+
+        while( fast.next!=null && fast.next.next!=null){
+
+            slow= slow.next;
+            fast= fast.next.next;
+        }
+
+        return slow;
+
+
+        /*   if you need mid as 5 in 1,2,5,6,8   */
+
+//        while( fast!=null && fast.next!=null){
+//
+//            slow= slow.next;
+//            fast= fast.next.next;
+//        }
+
+    }
+
+    public int kthfromlast(int k){
+
+        Node slow = head;
+        Node fast = head;
+
+
+        for (int i = 0; i <k; i++) {
+            fast = fast.next;
+        }
+
+        while(fast!=null){
+
+            slow = slow.next;
+            fast = fast.next;
+        }
+
+        return slow.value;
+    }
+
+    public LinkedList merge(LinkedList l1, LinkedList l2){
+
+        LinkedList l3 = new LinkedList();
+
+        Node first = l1.head;
+        Node second = l2.head;
+
+
+        while(first!=null && second!=null){
+
+            if(first.value<second.value){
+
+                l3.insertlast(first.value);
+                first = first.next;
+            }
+
+            else{
+                l3.insertlast(second.value);
+                second = second.next;
+            }
+        }
+
+        while(first!=null){
+
+            l3.insertlast(first.value);
+            first = first.next;
+        }
+
+        while (second!=null){
+
+            l3.insertlast(second.value);
+            second = second.next;
+        }
+
+        return l3;
+    }
+
+
+    public LinkedList mergesort(LinkedList list){
+
+        if(list.size==1){
+            return list;
+        }
+
+        Node mid = list.mid();
+        LinkedList first =new LinkedList();
+
+        first.head =list.head;
+        first.tail= mid;
+        first.size= (list.size+1)/2;
+
+        LinkedList second = new LinkedList();
+
+        second.head= mid.next;
+        second.tail = list.tail;
+        second.size = list.size/2;
+
+        mid.next =null;
+
+        first = mergesort(first);
+        second= mergesort(second);
+
+        return merge(first, second);
+
+    }
+
+    public void oddeven(){
+
+        Node odd_head = null;
+        Node odd_tail = null;
+
+        Node even_head = null;
+        Node even_tail= null;
+
+        Node temp = head;
+
+        while(temp!=null){
+
+            if(temp.value % 2 != 0){
+
+                if(odd_head==null){
+
+                    odd_head= temp;
+                    odd_tail=temp;
+                }
+                else{
+                    odd_tail.next=temp;
+                    odd_tail=temp;
+                }
+            }
+
+            else{
+
+                if(even_head==null){
+
+                    even_head= temp;
+                    even_tail=temp;
+                }
+                else{
+                    even_tail.next=temp;
+                    even_tail=temp;
+                }
+            }
+
+            temp = temp.next;
+
+        }
+
+        odd_tail.next =even_head;
+        head = odd_head;
+
+        even_tail.next =null;
+        tail =even_tail;
     }
 
     public void display(){
@@ -165,6 +324,8 @@ public class LinkedList {
 
         System.out.println("null");
     }
+
+
 
     public class Node{
 
