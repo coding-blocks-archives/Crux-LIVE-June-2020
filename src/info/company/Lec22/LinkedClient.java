@@ -9,18 +9,21 @@ public class LinkedClient {
         LinkedList list1 = new LinkedList();
 
         list1.insertlast(1);
-        list1.insertlast(5);
-
-        list1.insertlast(6);
         list1.insertlast(2);
 
-        list1.insertlast(7);
-        list1.insertlast(8);
+        list1.insertlast(3);
+        list1.insertlast(4);
+
+        list1.insertlast(5);
 
 
-        list1.oddeven();
 
+        list1.kreverse(3);
         list1.display();
+
+//        list1.oddeven();
+//
+//        list1.display();
 
 
 //        LinkedList sorted = list1.mergesort(list1);

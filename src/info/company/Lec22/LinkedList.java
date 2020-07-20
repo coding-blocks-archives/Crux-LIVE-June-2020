@@ -1,5 +1,8 @@
 package info.company.Lec22;
 
+
+import java.util.Stack;
+
 public class LinkedList {
 
     Node head;
@@ -310,6 +313,44 @@ public class LinkedList {
 
         even_tail.next =null;
         tail =even_tail;
+    }
+
+    public void kreverse(int k){
+
+        Node prev = null;
+
+       Stack<Node> stack = new Stack<>();
+
+       Node temp= head;
+
+       while(temp!=null){
+
+           int cnt =0;
+
+           while(temp!=null && cnt <k){
+
+               stack.push(temp);
+               temp =temp.next;
+               cnt=cnt+1;
+           }
+
+           while (!stack.isEmpty()){
+
+               if(prev == null){
+                   prev = stack.pop();
+                   head = prev;
+               }
+
+               else{
+
+                   prev.next=stack.pop();
+                   prev = prev.next;
+               }
+           }
+       }
+
+       prev.next=null;
+       tail = prev;
     }
 
     public void display(){
