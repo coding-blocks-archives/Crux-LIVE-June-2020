@@ -69,5 +69,6 @@ public class LinkedClient {
 //        LinkedList list = new LinkedList();
 //        LinkedList l3 = list1.merge(list1,list2);
 //        l3.display();
+
     }
 }

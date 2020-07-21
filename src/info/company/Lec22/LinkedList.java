@@ -325,7 +325,7 @@ public class LinkedList {
 
        while(temp!=null){
 
-           int cnt =0;
+           int cnt =1;
 
            while(temp!=null && cnt <k){
 
