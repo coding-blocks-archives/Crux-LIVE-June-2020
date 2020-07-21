@@ -164,8 +164,11 @@ public class LinkedList {
 
         while( fast.next!=null && fast.next.next!=null){
 
+
             slow= slow.next;
             fast= fast.next.next;
+
+
         }
 
         return slow;
@@ -177,7 +180,10 @@ public class LinkedList {
 //
 //            slow= slow.next;
 //            fast= fast.next.next;
+
 //        }
+
+
 
     }
 
