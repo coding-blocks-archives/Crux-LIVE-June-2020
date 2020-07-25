@@ -1,6 +1,8 @@
 package info.company.Lec24;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Scanner;
 
 public class GenericTrees {
@@ -55,6 +57,66 @@ public class GenericTrees {
         return cnt;
     }
 
+    public int max(){
+
+        int max =root.value;
+        return max(root,max);
+    }
+
+    private int max(Node node, int max){
+
+        if(max<node.value){
+            max = node.value;
+        }
+
+        for (int i = 0; i <node.children.size() ; i++) {
+
+            max = max(node.children.get(i),max);
+        }
+
+        return max;
+    }
+
+
+
+
+    public void atLevel(int k){
+
+        atLevel(root, k);
+    }
+
+    private void atLevel(Node node, int k) {
+
+        if(k==0){
+            System.out.println(node.value);
+            return;
+        }
+
+        for (int i = 0; i <node.children.size() ; i++) {
+
+            atLevel(node.children.get(i),k-1);
+        }
+    }
+
+    public void levelorder(){
+
+        Queue<Node> queue = new LinkedList<>();
+
+        queue.add(root);
+
+        while(!queue.isEmpty()){
+
+            Node temp =queue.remove();
+            System.out.println(temp.value);
+
+            for (int i = 0; i <temp.children.size() ; i++) {
+
+                queue.add(temp.children.get(i));
+            }
+        }
+
+    }
+
     public void display(){
 
         display(root, "");
@@ -70,8 +132,6 @@ public class GenericTrees {
         }
 
     }
-
-
 
 
     public class Node{
