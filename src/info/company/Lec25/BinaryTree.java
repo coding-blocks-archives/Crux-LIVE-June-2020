@@ -105,6 +105,24 @@ public class BinaryTree {
         return Math.max(height(node.left),height(node.right))+1;
     }
 
+    public boolean find(int value){
+
+       return find(root,value);
+    }
+
+    private boolean find(Node node, int value) {
+
+        if(node == null){
+            return false;
+        }
+
+        if(node.value == value){
+            return true;
+        }
+
+        return find(node.left,value) || find(node.right, value);
+    }
+
     public int diameter(){
 
         return diameter(root);
@@ -121,6 +139,26 @@ public class BinaryTree {
         int max = Math.max(diameter(node.left),diameter(node.right));
 
         return Math.max(current, max);
+    }
+
+    public void mirror(){
+
+        mirror(root);
+    }
+
+    private void mirror(Node node) {
+
+        if(node == null){
+            return;
+        }
+
+        Node temp =node.left;
+        node.left = node.right;
+        node.right=temp;
+
+        mirror(node.left);
+        mirror(node.right);
+
     }
 
     public void levelorder(){
