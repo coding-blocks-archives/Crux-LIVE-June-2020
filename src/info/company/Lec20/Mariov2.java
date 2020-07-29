@@ -18,13 +18,13 @@ public class Mariov2 extends Mario1 {
 //        super.jump();
     }
 
-    public void shoot(){
+    public void shoot(String ...a){
         System.out.println("me Goli bhi maar sakta hun");
     }
 
-//    public void shoot(int a,int b){
-//        System.out.println("kese ho aap sab");
-//    }
+    public void shoot(String a,String b){
+        System.out.println("kese ho aap sab");
+    }
 //
 //
 //    public void shoot(float a){

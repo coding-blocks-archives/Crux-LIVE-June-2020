@@ -2,7 +2,7 @@ package info.company.Lec26;
 
 import java.util.Arrays;
 
-public class BinarySearchTree {
+public class BinarySearchTree<T> {
 
     Node root;
 
@@ -25,8 +25,50 @@ public class BinarySearchTree {
             node.right= insert(node.right, value);
         }
 
+        node.height = Math.max(height(node.left),height(node.right))+1;
+
         return node;
     }
+
+    public int height(){
+
+        return height(root);
+    }
+
+    private int height(Node node) {
+
+        if(node == null){
+            return 0;
+        }
+
+        return node.height;
+    }
+
+    public boolean isbalanced(){
+
+        return isbalanced(root);
+    }
+
+    private boolean isbalanced(Node node) {
+
+        if(node == null){
+            return true;
+        }
+
+        int diff = Math.abs(height(node.left)- height(node.right));
+
+        if(diff>1){
+            return false;
+        }
+
+        boolean left = isbalanced(node.left);
+        boolean right = isbalanced(node.right);
+
+
+        return left && right;
+
+    }
+
 
     public void makefromprein(int[] pre, int[] in){
 
@@ -180,9 +222,11 @@ public class BinarySearchTree {
         int value;
         Node left;
         Node right;
+       private int height;
 
         public Node(int value) {
             this.value = value;
+            this.height =1;
         }
     }
 }

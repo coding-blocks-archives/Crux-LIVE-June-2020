@@ -333,7 +333,7 @@ public class LinkedList {
 
            int cnt =1;
 
-           while(temp!=null && cnt <k){
+           while(temp!=null && cnt <=k){
 
                stack.push(temp);
                temp =temp.next;

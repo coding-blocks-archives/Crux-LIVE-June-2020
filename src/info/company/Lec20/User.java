@@ -12,6 +12,7 @@ public class User {
         mario1.move();
         System.out.println(mario1.hands);
 
+
         mario1.meredushman();
 
 //        sum(1,2,3);
