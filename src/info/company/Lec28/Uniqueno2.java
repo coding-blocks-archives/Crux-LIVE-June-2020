@@ -4,7 +4,7 @@ public class Uniqueno2 {
 
     public static void main(String[] args) {
 
-        int[] ar = {2,2,11,3,3,7,7,8};
+        int[] ar = {2,5,3,3,4,4,6,6,7,7};
         unique2(ar);
     }
 
@@ -23,12 +23,12 @@ public class Uniqueno2 {
 
         while(temp!=0){
 
-            if((temp&1)==1){
+            if((temp & 1)==1){
                 break;
             }
 
-            cnt=cnt+1;
-            temp=temp>>1;
+            cnt = cnt + 1;
+            temp = temp >> 1;
         }
 
         int mask = 1<<cnt;

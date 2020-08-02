@@ -9,6 +9,7 @@ public class BinarySearchTree<T> {
     public void insert(int value){
 
         this.root = insert(root, value);
+
     }
 
     private Node insert(Node node, int value) {
