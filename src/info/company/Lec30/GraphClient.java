@@ -4,28 +4,30 @@ public class GraphClient {
 
     public static void main(String[] args) {
 
-        AdjacencyList list = new AdjacencyList();
+        AdjacencyList graph = new AdjacencyList();
 
-        list.addVertex("A");
-        list.addVertex("B");
-        list.addVertex("C");
-        list.addVertex("D");
+        graph.addVertex("A");
+        graph.addVertex("B");
+        graph.addVertex("C");
+        graph.addVertex("D");
 
-//        list.addVertex("E");
-//        list.addVertex("F");
+//        graph.addVertex("E");
+//        graph.addVertex("F");
 
 
-        list.addEdge("A","B");
-        list.addEdge("B","D");
-        list.addEdge("A","C");
-        list.addEdge("C","D");
+        graph.addEdge("A","B");
+        graph.addEdge("B","D");
+        graph.addEdge("A","C");
+        graph.addEdge("C","D");
 
-//        list.addEdge("E", "F");
-
-        System.out.println(list.isConnected());
-//        list.BFT();
-        System.out.println(list.connectedComponents());
-//        list.DFT();
-//        list.display();
+        System.out.println(graph.bipartite());
+        
+//        graph.addEdge("E", "F");
+//
+//        System.out.println(graph.isConnected());
+////        graph.BFT();
+//        System.out.println(graph.connectedComponents());
+//        graph.DFT();
+//        graph.display();
     }
 }

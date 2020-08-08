@@ -1,14 +1,18 @@
 package info.company.Lec27;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
-public class Heaps {
+public class Heaps<T extends Comparable<T>> {
 
-    ArrayList<Integer> list = new ArrayList<>();
+    ArrayList<T> list = new ArrayList<>();
 
-    public void insert(int element){
+    HashMap<T,Integer> map = new HashMap<>();
+
+    public void insert(T element){
 
         list.add(element);
+        map.put(element, list.size()-1);
         upheap(list.size()-1);
     }
 
@@ -20,30 +24,26 @@ public class Heaps {
 
         int parent = parent(index);
 
-        if(list.get(parent)>list.get(index)){
+        if(list.get(parent).compareTo(list.get(index))>0){
             swap(parent,index);
             upheap(parent);
         }
     }
 
-    public int remove(){
+    public T remove(){
 
-        if(list.isEmpty()){
-            System.out.println("List is empty");
-            return -1;
-        }
+        swap(0,list.size()-1);
 
-        int temp = list.get(0);
+        T temp = list.remove(list.size()-1);
 
-        int delete = list.remove(list.size()-1);
-
-        if(!list.isEmpty()){
-
-            list.set(0,delete);
-            downheap(0);
-        }
+        downheap(0);
 
         return temp;
+    }
+
+    public boolean isEmpty(){
+
+        return list.isEmpty();
     }
 
     private void downheap(int index) {
@@ -53,11 +53,11 @@ public class Heaps {
         int left = leftchild(index);
         int right =rightchild(index);
 
-        if(left<list.size() && list.get(left)<list.get(min)){
+        if(left<list.size() && list.get(left).compareTo(list.get(min))<0){
             min = left;
         }
 
-        if(right<list.size() &&list.get(right)<list.get(min)){
+        if(right<list.size() &&list.get(right).compareTo(list.get(min))<0){
             min =right;
         }
 
@@ -70,12 +70,22 @@ public class Heaps {
 
     public void swap(int first, int second){
 
-        int temp = list.get(first);
+        T temp = list.get(first);
+        T temp1 = list.get(second);
+
         list.set(first,list.get(second));
         list.set(second,temp);
 
+        map.put(temp,second);
+        map.put(temp1,first);
+
     }
 
+    public void update(T pair){
+
+        int index = map.get(pair);
+        upheap(index);
+    }
 
     public int parent(int index){
 

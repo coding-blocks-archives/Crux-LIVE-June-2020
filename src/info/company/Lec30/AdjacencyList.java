@@ -178,6 +178,67 @@ public class AdjacencyList {
     }
 
 
+    public boolean bipartite(){
+
+        Set<Vertex> red = new HashSet<>();
+        Set<Vertex > green = new HashSet<>();
+
+        Set<Vertex> visited = new HashSet<>();
+
+        Queue<Vertex> queue = new LinkedList<>();
+
+        Vertex vertex = vertices.get(0);
+        visited.add(vertex);
+        queue.add(vertex);
+        red.add(vertex);
+
+        while(!queue.isEmpty()){
+
+            Vertex temp = queue.remove();
+
+            if (red.contains(temp)){
+
+            for (Vertex padosi: temp.neighbours) {
+
+                if (!visited.contains(padosi)) {
+
+                    queue.add(padosi);
+                    green.add(padosi);
+                    visited.add(padosi);
+                }
+
+                else {
+                    if(red.contains(padosi)){
+                        return false;
+                    }
+                }
+            }
+            }
+
+            if (green.contains(temp)){
+                for (Vertex padosi: temp.neighbours) {
+
+                    if (!visited.contains(padosi)) {
+
+                        queue.add(padosi);
+                        red.add(padosi);
+                        visited.add(padosi);
+                    }
+
+                    else {
+
+                        if(green.contains(padosi)){
+                            return false;
+                        }
+                    }
+                }
+            }
+        }
+
+        return true;
+
+    }
+
 
     class Vertex{
 
