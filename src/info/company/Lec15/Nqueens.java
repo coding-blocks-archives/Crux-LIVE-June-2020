@@ -11,7 +11,7 @@ public class Nqueens {
     public static void nqueen(boolean[][] board, int row){
 
         if(row == board.length){
-            printmatrix(board);
+            display(board);
             return;
         }
 
@@ -37,7 +37,7 @@ public class Nqueens {
 
         int left = Math.min(row,col);
 
-        for (int i = 0; i <= left ; i++) {
+        for (int i = 1; i <= left ; i++) {
 
             if(board[row-i][col-i]){
                 return false;
@@ -46,7 +46,7 @@ public class Nqueens {
 
         int right = Math.min(row,board.length-col-1);
 
-        for (int i = 0; i <=right  ; i++) {
+        for (int i = 1; i <=right  ; i++) {
 
             if(board[row-i][col+i]){
                 return false;
@@ -56,7 +56,7 @@ public class Nqueens {
         return true;
     }
 
-    private static void printmatrix(boolean[][] board) {
+    private static void display(boolean[][] board) {
 
         for (int i = 0; i <board.length ; i++) {
 
